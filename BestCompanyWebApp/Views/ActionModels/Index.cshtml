@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BestCompanyWebApp.Models.ActionModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="widget-container">
+    @(Html.DevExtreme().DataGrid<ActionModel>()
+    .ID("Actions")
+    .RowAlternationEnabled(true)
+    .OnRowDblClick("ShowDetails")
+    .DataSource(d => d.Mvc()
+        .Controller("ActionModels")
+        .LoadAction("GetAll")
+        .InsertAction("Post")
+        .Key("ActionId"))
+    .Columns(columns =>
+    {
+        columns.AddFor(m => m.ActionId).DataField("ActionId").FormItem(f=>f.Visible(false))
+            .MinWidth(50);
+
+        columns.AddFor(m => m.ActionType).DataField("ActionType")
+            .MinWidth(200);
+
+        columns.AddFor(m => m.EmployeeId).DataField("EmployeeId").Lookup(l=>l.DataSource(d=>d.Mvc()
+            .Controller("Lookup")
+            .LoadAction("EmployeeLookup")
+            .Key("value"))
+            .DisplayExpr("text")
+            .ValueExpr("value"));
+
+        columns.AddFor(m=>m.ActionDate).DataField("ActionDate").Format("dd/MM/yyyy");
+
+    })
+        .Editing(editing => {
+            editing.AllowAdding(true);
+            editing.AllowUpdating(false);
+            editing.AllowDeleting(false);
+            editing.Mode(GridEditMode.Popup).Form(f => f.ColCount(1));
+            editing.Popup(p => p.Width("75%").Height("85%").DragEnabled(true).ResizeEnabled(true));
+            editing.UseIcons(true);
+        })
+        .Summary(s => s.TotalItems(items =>
+        {
+            items.AddFor(m => m.ActionId).SummaryType(SummaryType.Count);
+        }))
+    )
+</div>
+
+<script>
+    function ShowDetails(e) {
+        var id =e.data.ActionId;
+        window.location.href = '/ActionModels/Edit/' + id;
+    }
+</script>
+

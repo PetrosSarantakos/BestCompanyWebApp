@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestCompanyWebApp", "BestCompanyWebApp\BestCompanyWebApp.csproj", "{E86A583C-6DAF-4A3F-967D-7E4ECADD8200}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExtreme NuGet.config", "DevExtreme NuGet.config", "{140BFD33-B685-46A1-A4D6-25AB0AC09D25}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E86A583C-6DAF-4A3F-967D-7E4ECADD8200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E86A583C-6DAF-4A3F-967D-7E4ECADD8200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E86A583C-6DAF-4A3F-967D-7E4ECADD8200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E86A583C-6DAF-4A3F-967D-7E4ECADD8200}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEE4C5E4-7572-468F-A6E1-119F9F68D64F}
+	EndGlobalSection
+EndGlobal
